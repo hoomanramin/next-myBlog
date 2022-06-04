@@ -1,9 +1,7 @@
 import {useState} from "react";
+import AllPosts from "../../Components/posts/all-posts";
 
-import FeaturePost from "../Components/home-page/feature-post";
-import Hero from "../Components/home-page/hero";
-
-const HomePage = () => {
+const AllPostPage = () => {
   const [posts, setPosts] = useState([
     {
       slug: "coding-event",
@@ -30,13 +28,11 @@ const HomePage = () => {
       date: "2022-09-10",
     },
   ]);
-
   return (
-    <>
-      <Hero />
-      <FeaturePost posts={posts} />
-    </>
+    <div>
+      <AllPosts posts={posts} />
+    </div>
   );
 };
 
-export default HomePage;
+export default AllPostPage;
