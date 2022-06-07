@@ -1,10 +1,10 @@
 import PostsGrid from "../posts/posts-grid";
 import classes from "./feature-post.module.css";
-const FeaturePost = props => {
+const FeaturePost = ({posts}) => {
   return (
     <section className={classes.latest}>
       <h2>Featured</h2>
-      <PostsGrid posts={props.posts} />
+      <PostsGrid posts={posts} />
     </section>
   );
 };
