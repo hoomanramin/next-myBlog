@@ -1,9 +1,14 @@
 import PostHeader from "./post-header";
 import classes from "./post-content.module.css";
 import ReactMarkdown from "react-markdown";
-import {Prism as Highlighter} from "react-syntax-highlighter";
-import {twilight} from "react-syntax-highlighter/dist/cjs/styles/prism";
+import {PrismLight as Highlighter} from "react-syntax-highlighter";
+import atomDark from "react-syntax-highlighter/dist/cjs/styles/prism/atom-dark";
+import js from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
+import css from "react-syntax-highlighter/dist/cjs/languages/prism/css";
 import Image from "next/image";
+
+Highlighter.registerLanguage("js", js);
+Highlighter.registerLanguage("css", css);
 
 const PostContent = ({post}) => {
   const imagePath = `/images/posts/${post.slug}/${post.image}`;
@@ -19,13 +24,11 @@ const PostContent = ({post}) => {
       );
     },
     code(code) {
-      const {language} = code;
+      const {language, children} = code;
       return (
-        <Highlighter
-          language={language}
-          children={code.children}
-          style={twilight}
-        />
+        <Highlighter language={language} style={atomDark}>
+          {children}
+        </Highlighter>
       );
     },
   };

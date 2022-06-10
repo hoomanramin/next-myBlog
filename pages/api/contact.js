@@ -20,6 +20,7 @@ const ContactHandler = async (req, res) => {
       message,
     };
     let client;
+    const connectString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_cluster}.k03kg.mongodb.net/?retryWrites=true&w=majority`;
     try {
       client = await MongoClient.connect(
         "mongodb+srv://hoomanramin:h2296360981HM@cluster0.k03kg.mongodb.net/?retryWrites=true&w=majority"
@@ -27,7 +28,7 @@ const ContactHandler = async (req, res) => {
     } catch (error) {
       res.status(500).json({message: "could not connect"});
     }
-    const db = client.db("my-blog");
+    const db = client.db(process.env.mongodb_databasekey);
 
     try {
       const collections = await db.collection("messages").insertOne(newMessage);

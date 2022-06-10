@@ -1,5 +1,6 @@
 import Image from "next/image";
 import classes from "./hero.module.css";
+
 const Hero = () => {
   return (
     <section className={classes.hero}>
@@ -11,7 +12,7 @@ const Hero = () => {
           height={400}
         />
       </div>
-      <h1>Hi I'm Hooman</h1>
+      <h1>Hi I&apos;m Hooman</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit molestias
         iusto deserunt laboriosam, vel, saepe at simi
